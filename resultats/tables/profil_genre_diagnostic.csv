@@ -1,0 +1,19 @@
+diagnosis,gender,n,part_pct
+Anémie,Femme,544,50.9
+Anémie,Homme,524,49.1
+Diabète,Femme,477,48.8
+Diabète,Homme,501,51.2
+Diarrhée,Femme,512,51.8
+Diarrhée,Homme,476,48.2
+Hypertension,Femme,488,50.7
+Hypertension,Homme,474,49.3
+Infection Respiratoire,Femme,501,50.3
+Infection Respiratoire,Homme,495,49.7
+Malnutrition,Femme,523,50.4
+Malnutrition,Homme,514,49.6
+Paludisme,Femme,497,49.7
+Paludisme,Homme,503,50.3
+Tuberculose,Femme,500,50.5
+Tuberculose,Homme,490,49.5
+Typhoïde,Femme,509,50.8
+Typhoïde,Homme,492,49.2

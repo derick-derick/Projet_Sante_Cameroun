@@ -1,0 +1,109 @@
+mois,mois_label,diagnosis,nb_cas
+1,Jan,Anémie,102
+2,Fév,Anémie,106
+3,Mar,Anémie,91
+4,Avr,Anémie,95
+5,Mai,Anémie,89
+6,Jun,Anémie,92
+7,Jul,Anémie,92
+8,Aoû,Anémie,100
+9,Sep,Anémie,91
+10,Oct,Anémie,88
+11,Nov,Anémie,92
+12,Déc,Anémie,83
+1,Jan,Diabète,84
+2,Fév,Diabète,81
+3,Mar,Diabète,88
+4,Avr,Diabète,79
+5,Mai,Diabète,105
+6,Jun,Diabète,84
+7,Jul,Diabète,72
+8,Aoû,Diabète,94
+9,Sep,Diabète,87
+10,Oct,Diabète,88
+11,Nov,Diabète,69
+12,Déc,Diabète,95
+1,Jan,Diarrhée,101
+2,Fév,Diarrhée,92
+3,Mar,Diarrhée,92
+4,Avr,Diarrhée,85
+5,Mai,Diarrhée,91
+6,Jun,Diarrhée,60
+7,Jul,Diarrhée,84
+8,Aoû,Diarrhée,88
+9,Sep,Diarrhée,91
+10,Oct,Diarrhée,82
+11,Nov,Diarrhée,81
+12,Déc,Diarrhée,95
+1,Jan,Hypertension,90
+2,Fév,Hypertension,65
+3,Mar,Hypertension,82
+4,Avr,Hypertension,98
+5,Mai,Hypertension,84
+6,Jun,Hypertension,109
+7,Jul,Hypertension,77
+8,Aoû,Hypertension,101
+9,Sep,Hypertension,74
+10,Oct,Hypertension,72
+11,Nov,Hypertension,85
+12,Déc,Hypertension,80
+1,Jan,Infection Respiratoire,82
+2,Fév,Infection Respiratoire,91
+3,Mar,Infection Respiratoire,68
+4,Avr,Infection Respiratoire,92
+5,Mai,Infection Respiratoire,80
+6,Jun,Infection Respiratoire,74
+7,Jul,Infection Respiratoire,95
+8,Aoû,Infection Respiratoire,98
+9,Sep,Infection Respiratoire,86
+10,Oct,Infection Respiratoire,103
+11,Nov,Infection Respiratoire,95
+12,Déc,Infection Respiratoire,93
+1,Jan,Malnutrition,110
+2,Fév,Malnutrition,87
+3,Mar,Malnutrition,89
+4,Avr,Malnutrition,75
+5,Mai,Malnutrition,97
+6,Jun,Malnutrition,101
+7,Jul,Malnutrition,87
+8,Aoû,Malnutrition,90
+9,Sep,Malnutrition,90
+10,Oct,Malnutrition,80
+11,Nov,Malnutrition,86
+12,Déc,Malnutrition,95
+1,Jan,Paludisme,84
+2,Fév,Paludisme,90
+3,Mar,Paludisme,86
+4,Avr,Paludisme,95
+5,Mai,Paludisme,80
+6,Jun,Paludisme,91
+7,Jul,Paludisme,85
+8,Aoû,Paludisme,76
+9,Sep,Paludisme,99
+10,Oct,Paludisme,78
+11,Nov,Paludisme,101
+12,Déc,Paludisme,88
+1,Jan,Tuberculose,96
+2,Fév,Tuberculose,74
+3,Mar,Tuberculose,88
+4,Avr,Tuberculose,88
+5,Mai,Tuberculose,82
+6,Jun,Tuberculose,87
+7,Jul,Tuberculose,113
+8,Aoû,Tuberculose,85
+9,Sep,Tuberculose,73
+10,Oct,Tuberculose,97
+11,Nov,Tuberculose,86
+12,Déc,Tuberculose,80
+1,Jan,Typhoïde,82
+2,Fév,Typhoïde,76
+3,Mar,Typhoïde,105
+4,Avr,Typhoïde,89
+5,Mai,Typhoïde,81
+6,Jun,Typhoïde,95
+7,Jul,Typhoïde,83
+8,Aoû,Typhoïde,93
+9,Sep,Typhoïde,80
+10,Oct,Typhoïde,89
+11,Nov,Typhoïde,90
+12,Déc,Typhoïde,85

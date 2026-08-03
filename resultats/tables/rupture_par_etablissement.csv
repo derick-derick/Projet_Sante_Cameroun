@@ -1,0 +1,151 @@
+region,district,facility_name,n,taux_rupture_pct
+Sud,Ebolowa,Centre de Santé Urbain Ebolowa,56,33.93
+Sud-Ouest,Kumba,Clinique Communautaire Kumba,56,32.14
+Est,Batouri,Centre Médical Intégré Batouri,66,31.82
+Extrême-Nord,Maroua,Hôpital Régional Maroua,57,29.82
+Centre,Yaoundé I,District Hospital Yaoundé I,59,28.81
+Centre,Yaoundé I,Centre de Santé Urbain Yaoundé I,61,27.87
+Nord,Pitoa,Hôpital Régional Pitoa,54,27.78
+Est,Batouri,Hôpital Régional Batouri,62,27.42
+Nord-Ouest,Bamenda,Centre Médical Intégré Bamenda,74,27.03
+Nord,Guider,District Hospital Guider,56,26.79
+Ouest,Mbouda,District Hospital Mbouda,57,26.32
+Centre,Mbalmayo,District Hospital Mbalmayo,65,26.15
+Sud,Sangmélima,Centre de Santé Urbain Sangmélima,73,26.03
+Centre,Yaoundé II,Centre de Santé Urbain Yaoundé II,62,25.81
+Centre,Mbalmayo,Hôpital Régional Mbalmayo,66,25.76
+Est,Batouri,Clinique Communautaire Batouri,65,24.62
+Extrême-Nord,Maroua,District Hospital Maroua,65,24.62
+Centre,Yaoundé I,Hôpital Régional Yaoundé I,70,24.29
+Ouest,Dschang,Clinique Communautaire Dschang,62,24.19
+Sud,Ebolowa,Centre Médical Intégré Ebolowa,72,23.61
+Nord,Garoua,Centre de Santé Urbain Garoua,68,23.53
+Sud,Ebolowa,Hôpital Régional Ebolowa,77,23.38
+Ouest,Dschang,District Hospital Dschang,60,23.33
+Littoral,Nkongsamba,Centre de Santé Urbain Nkongsamba,65,23.08
+Littoral,Douala I,Hôpital Régional Douala I,57,22.81
+Centre,Mbalmayo,Centre Médical Intégré Mbalmayo,71,22.54
+Est,Batouri,District Hospital Batouri,58,22.41
+Nord,Pitoa,Centre Médical Intégré Pitoa,58,22.41
+Adamaoua,Tibati,Hôpital Régional Tibati,77,22.08
+Sud,Sangmélima,Hôpital Régional Sangmélima,68,22.06
+Sud,Sangmélima,Centre Médical Intégré Sangmélima,59,22.03
+Sud,Sangmélima,District Hospital Sangmélima,64,21.88
+Sud-Ouest,Buea,District Hospital Buea,64,21.88
+Nord,Garoua,Hôpital Régional Garoua,55,21.82
+Est,Yokadouma,Hôpital Régional Yokadouma,51,21.57
+Adamaoua,Meiganga,Centre Médical Intégré Meiganga,70,21.43
+Nord,Garoua,Centre Médical Intégré Garoua,61,21.31
+Est,Bertoua,Centre de Santé Urbain Bertoua,76,21.05
+Ouest,Bafoussam,Centre de Santé Urbain Bafoussam,57,21.05
+Nord,Guider,Clinique Communautaire Guider,67,20.9
+Nord-Ouest,Wum,Clinique Communautaire Wum,72,20.83
+Extrême-Nord,Mokolo,Hôpital Régional Mokolo,53,20.75
+Centre,Yaoundé II,Hôpital Régional Yaoundé II,58,20.69
+Littoral,Douala I,Centre de Santé Urbain Douala I,68,20.59
+Adamaoua,Meiganga,Hôpital Régional Meiganga,54,20.37
+Centre,Yaoundé II,Clinique Communautaire Yaoundé II,64,20.31
+Sud-Ouest,Kumba,Hôpital Régional Kumba,69,20.29
+Adamaoua,Ngaoundéré,Clinique Communautaire Ngaoundéré,65,20
+Est,Bertoua,Clinique Communautaire Bertoua,75,20
+Extrême-Nord,Maroua,Centre de Santé Urbain Maroua,55,20
+Ouest,Mbouda,Centre Médical Intégré Mbouda,60,20
+Sud-Ouest,Buea,Hôpital Régional Buea,60,20
+Sud-Ouest,Limbe,Centre de Santé Urbain Limbe,65,20
+Sud,Sangmélima,Clinique Communautaire Sangmélima,56,19.64
+Sud-Ouest,Limbe,Hôpital Régional Limbe,51,19.61
+Sud-Ouest,Kumba,District Hospital Kumba,46,19.57
+Littoral,Douala II,District Hospital Douala II,87,19.54
+Extrême-Nord,Mokolo,Centre de Santé Urbain Mokolo,82,19.51
+Est,Yokadouma,Centre Médical Intégré Yokadouma,57,19.3
+Ouest,Bafoussam,Clinique Communautaire Bafoussam,57,19.3
+Extrême-Nord,Mokolo,Clinique Communautaire Mokolo,78,19.23
+Nord-Ouest,Bamenda,Clinique Communautaire Bamenda,47,19.15
+Adamaoua,Ngaoundéré,Hôpital Régional Ngaoundéré,68,19.12
+Est,Bertoua,District Hospital Bertoua,68,19.12
+Nord-Ouest,Bamenda,District Hospital Bamenda,63,19.05
+Sud,Ebolowa,Clinique Communautaire Ebolowa,63,19.05
+Sud-Ouest,Buea,Clinique Communautaire Buea,63,19.05
+Est,Batouri,Centre de Santé Urbain Batouri,64,18.75
+Adamaoua,Ngaoundéré,Centre Médical Intégré Ngaoundéré,59,18.64
+Sud-Ouest,Kumba,Centre Médical Intégré Kumba,66,18.18
+Ouest,Bafoussam,District Hospital Bafoussam,61,18.03
+Ouest,Dschang,Centre de Santé Urbain Dschang,61,18.03
+Sud,Kribi,Centre Médical Intégré Kribi,61,18.03
+Nord-Ouest,Wum,Centre Médical Intégré Wum,79,17.72
+Centre,Yaoundé I,Clinique Communautaire Yaoundé I,51,17.65
+Adamaoua,Tibati,Centre de Santé Urbain Tibati,63,17.46
+Extrême-Nord,Maroua,Clinique Communautaire Maroua,69,17.39
+Ouest,Mbouda,Hôpital Régional Mbouda,69,17.39
+Est,Yokadouma,Clinique Communautaire Yokadouma,81,17.28
+Extrême-Nord,Maroua,Centre Médical Intégré Maroua,64,17.19
+Adamaoua,Meiganga,Clinique Communautaire Meiganga,70,17.14
+Est,Yokadouma,Centre de Santé Urbain Yokadouma,59,16.95
+Sud,Ebolowa,District Hospital Ebolowa,71,16.9
+Extrême-Nord,Kousseri,Hôpital Régional Kousseri,77,16.88
+Littoral,Douala I,District Hospital Douala I,60,16.67
+Nord,Guider,Centre Médical Intégré Guider,78,16.67
+Nord-Ouest,Wum,District Hospital Wum,48,16.67
+Adamaoua,Tibati,Centre Médical Intégré Tibati,79,16.46
+Extrême-Nord,Mokolo,Centre Médical Intégré Mokolo,67,16.42
+Adamaoua,Tibati,District Hospital Tibati,55,16.36
+Littoral,Douala II,Centre de Santé Urbain Douala II,55,16.36
+Est,Bertoua,Hôpital Régional Bertoua,49,16.33
+Sud,Kribi,District Hospital Kribi,49,16.33
+Littoral,Douala I,Centre Médical Intégré Douala I,62,16.13
+Nord-Ouest,Bamenda,Centre de Santé Urbain Bamenda,56,16.07
+Centre,Mbalmayo,Centre de Santé Urbain Mbalmayo,75,16
+Sud-Ouest,Limbe,District Hospital Limbe,57,15.79
+Ouest,Dschang,Centre Médical Intégré Dschang,70,15.71
+Ouest,Mbouda,Clinique Communautaire Mbouda,51,15.69
+Adamaoua,Ngaoundéré,District Hospital Ngaoundéré,64,15.62
+Extrême-Nord,Kousseri,Centre Médical Intégré Kousseri,64,15.62
+Extrême-Nord,Kousseri,District Hospital Kousseri,64,15.62
+Nord-Ouest,Wum,Centre de Santé Urbain Wum,64,15.62
+Littoral,Nkongsamba,Centre Médical Intégré Nkongsamba,65,15.38
+Nord-Ouest,Kumbo,District Hospital Kumbo,52,15.38
+Ouest,Bafoussam,Centre Médical Intégré Bafoussam,78,15.38
+Sud,Kribi,Centre de Santé Urbain Kribi,52,15.38
+Ouest,Dschang,Hôpital Régional Dschang,72,15.28
+Extrême-Nord,Kousseri,Clinique Communautaire Kousseri,59,15.25
+Nord,Pitoa,District Hospital Pitoa,59,15.25
+Ouest,Mbouda,Centre de Santé Urbain Mbouda,59,15.25
+Centre,Yaoundé I,Centre Médical Intégré Yaoundé I,79,15.19
+Ouest,Bafoussam,Hôpital Régional Bafoussam,66,15.15
+Extrême-Nord,Kousseri,Centre de Santé Urbain Kousseri,60,15
+Adamaoua,Tibati,Clinique Communautaire Tibati,74,14.86
+Sud-Ouest,Limbe,Centre Médical Intégré Limbe,55,14.55
+Est,Yokadouma,District Hospital Yokadouma,62,14.52
+Adamaoua,Meiganga,District Hospital Meiganga,83,14.46
+Nord,Garoua,Clinique Communautaire Garoua,71,14.08
+Nord,Pitoa,Centre de Santé Urbain Pitoa,58,13.79
+Nord,Guider,Hôpital Régional Guider,59,13.56
+Nord,Garoua,District Hospital Garoua,67,13.43
+Nord,Guider,Centre de Santé Urbain Guider,60,13.33
+Nord-Ouest,Kumbo,Hôpital Régional Kumbo,60,13.33
+Littoral,Douala I,Clinique Communautaire Douala I,68,13.24
+Adamaoua,Meiganga,Centre de Santé Urbain Meiganga,71,12.68
+Littoral,Douala II,Clinique Communautaire Douala II,79,12.66
+Adamaoua,Ngaoundéré,Centre de Santé Urbain Ngaoundéré,64,12.5
+Littoral,Douala II,Hôpital Régional Douala II,64,12.5
+Sud-Ouest,Limbe,Clinique Communautaire Limbe,81,12.35
+Nord-Ouest,Kumbo,Clinique Communautaire Kumbo,65,12.31
+Littoral,Nkongsamba,Hôpital Régional Nkongsamba,58,12.07
+Littoral,Douala II,Centre Médical Intégré Douala II,52,11.54
+Sud,Kribi,Hôpital Régional Kribi,61,11.48
+Nord-Ouest,Kumbo,Centre de Santé Urbain Kumbo,71,11.27
+Littoral,Nkongsamba,Clinique Communautaire Nkongsamba,64,10.94
+Nord-Ouest,Bamenda,Hôpital Régional Bamenda,64,10.94
+Sud-Ouest,Buea,Centre Médical Intégré Buea,56,10.71
+Centre,Yaoundé II,Centre Médical Intégré Yaoundé II,57,10.53
+Est,Bertoua,Centre Médical Intégré Bertoua,59,10.17
+Centre,Yaoundé II,District Hospital Yaoundé II,50,10
+Sud-Ouest,Buea,Centre de Santé Urbain Buea,63,9.52
+Sud,Kribi,Clinique Communautaire Kribi,74,9.46
+Extrême-Nord,Mokolo,District Hospital Mokolo,64,9.38
+Littoral,Nkongsamba,District Hospital Nkongsamba,55,9.09
+Nord-Ouest,Wum,Hôpital Régional Wum,56,8.93
+Nord,Pitoa,Clinique Communautaire Pitoa,47,8.51
+Centre,Mbalmayo,Clinique Communautaire Mbalmayo,60,8.33
+Sud-Ouest,Kumba,Centre de Santé Urbain Kumba,57,7.02
+Nord-Ouest,Kumbo,Centre Médical Intégré Kumbo,64,6.25

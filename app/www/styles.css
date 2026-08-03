@@ -1,0 +1,108 @@
+/* =============================================================================
+   styles.css -- charte graphique "sante" pour le dashboard Shiny
+   Palette clinique bleu/aqua, cartes blanches, ombres douces, look moderne.
+============================================================================= */
+
+:root {
+  --sante-primaire: #2a78d6;
+  --sante-primaire-fonce: #184f95;
+  --sante-secondaire: #1baf7a;
+  --sante-surface: #ffffff;
+  --sante-fond: #f4f7fb;
+  --sante-encre: #0b0b0b;
+  --sante-encre-douce: #52514e;
+  --sante-encre-muette: #898781;
+  --sante-bordure: #e6eaf1;
+  --sante-bon: #0ca30c;
+  --sante-avertissement: #fab219;
+  --sante-critique: #d03b3b;
+}
+
+body {
+  background-color: var(--sante-fond);
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  color: var(--sante-encre);
+}
+
+/* --- Barre de navigation ------------------------------------------------ */
+.navbar {
+  background: linear-gradient(100deg, var(--sante-primaire-fonce) 0%, var(--sante-primaire) 100%) !important;
+  box-shadow: 0 2px 10px rgba(20, 40, 80, 0.12);
+}
+.navbar .navbar-brand {
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.navbar .nav-link {
+  font-weight: 500;
+  opacity: 0.92;
+}
+.navbar .nav-link.active {
+  font-weight: 700;
+  opacity: 1;
+}
+
+/* --- Barre laterale de filtres ------------------------------------------ */
+.bslib-sidebar-layout > .sidebar {
+  background-color: var(--sante-surface);
+  border-right: 1px solid var(--sante-bordure);
+}
+.sidebar-title {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--sante-primaire-fonce);
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  margin-bottom: 4px;
+}
+
+/* --- Cartes / value boxes ------------------------------------------------ */
+.card, .bslib-value-box {
+  border: 1px solid var(--sante-bordure) !important;
+  border-radius: 14px !important;
+  box-shadow: 0 2px 12px rgba(20, 40, 80, 0.06);
+}
+.card-header {
+  background-color: var(--sante-surface);
+  font-weight: 700;
+  color: var(--sante-primaire-fonce);
+  border-bottom: 1px solid var(--sante-bordure);
+}
+.bslib-value-box .value-box-title {
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  opacity: 0.85;
+}
+.bslib-value-box .value-box-value {
+  font-weight: 800 !important;
+  font-size: 1.9rem !important;
+}
+
+/* --- Onglets navset -------------------------------------------------------*/
+.nav-tabs .nav-link.active {
+  color: var(--sante-primaire-fonce);
+  font-weight: 700;
+  border-bottom: 3px solid var(--sante-primaire);
+}
+
+/* --- Badges de statut (rupture de stock, qualite) ------------------------ */
+.badge-sante-bon { background-color: var(--sante-bon); color: #fff; }
+.badge-sante-avertissement { background-color: var(--sante-avertissement); color: #2b2200; }
+.badge-sante-critique { background-color: var(--sante-critique); color: #fff; }
+
+/* --- Pied de page --------------------------------------------------------*/
+.pied-de-page {
+  color: var(--sante-encre-muette);
+  font-size: 0.8rem;
+  text-align: center;
+  padding: 18px 0 10px 0;
+}
+
+/* --- Table DT -------------------------------------------------------------*/
+table.dataTable thead th {
+  color: var(--sante-primaire-fonce) !important;
+  border-bottom: 2px solid var(--sante-primaire) !important;
+}

@@ -1,0 +1,7 @@
+etape,valeur
+Lignes brutes,10300
+Doublons exacts supprimes,232
+Doublons patient_id+date supprimes,57
+Ages aberrants -> NA,49
+Couts aberrants -> NA,50
+Lignes finales,10011
