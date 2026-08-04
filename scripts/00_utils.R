@@ -39,9 +39,12 @@ PALETTE_SANTE <- list(
   surface       = "#fcfcfb",
   fond_page     = "#f9f9f7",
   bon           = "#0ca30c",  # statut : disponible / bon niveau
-  avertissement = "#fab219",  # statut : a surveiller
+  avertissement = "#fab219",  # statut : a surveiller -- UNIQUEMENT en fond (icone/badge/barre),
+                               # jamais en texte : contraste 1.79 sur fond clair (cf. palette.md)
+  avertissement_texte = "#9a6700",  # variante foncee, accessible en texte sur fond clair (~4.6:1)
   serieux       = "#ec835a",  # statut : degrade
-  critique      = "#d03b3b"   # statut : rupture / critique
+  critique      = "#d03b3b",  # statut : rupture / critique
+  emphase_muet  = "#d5d3cc"   # gris clair pour les series "hors sujet" d'un graphique en emphase
 )
 
 # Palette categorique ordonnee (ne jamais permuter l'ordre -- securite CVD)

@@ -111,13 +111,20 @@ theme_dashboard <- bs_theme(
 # ------------------------------------------------------------------------------
 # Fonctions utilitaires d'affichage
 # ------------------------------------------------------------------------------
-carte_kpi <- function(titre, valeur, icone, couleur = PALETTE_SANTE$primaire, sous_texte = NULL) {
+carte_kpi <- function(titre, valeur, icone, couleur = PALETTE_SANTE$primaire, sous_texte = NULL, badge = NULL) {
+  # Le texte (titre/valeur/sous-texte) reste TOUJOURS en encre neutre foncee --
+  # lisible quelle que soit la couleur de statut. L'identite/le statut passe
+  # uniquement par l'icone (mark graphique) et, si fourni, un badge dedie
+  # (icone + libelle, jamais la couleur seule -- cf. charte dataviz).
   value_box(
     title = titre,
     value = valeur,
-    showcase = bs_icon(icone, size = "1.8rem"),
-    theme = value_box_theme(bg = "white", fg = couleur),
-    p(sous_texte, style = paste0("color:", PALETTE_SANTE$neutre_clair, "; margin-top:-6px;")),
+    showcase = span(style = paste0("color:", couleur, ";"), bs_icon(icone, size = "1.8rem")),
+    theme = value_box_theme(bg = "white", fg = PALETTE_SANTE$neutre_fonce),
+    tagList(
+      p(sous_texte, style = paste0("color:", PALETTE_SANTE$neutre_moyen, "; margin: -6px 0 6px 0;")),
+      badge
+    ),
     full_screen = FALSE
   )
 }
@@ -169,7 +176,7 @@ barre_filtres <- sidebar(
   hr(),
   actionButton("reinitialiser", "Réinitialiser les filtres",
                icon = icon_svg <- bs_icon("arrow-counterclockwise"), class = "btn-outline-primary w-100"),
-  div(style = "margin-top:18px; font-size:0.75rem; color:#898781;",
+  div(style = paste0("margin-top:18px; font-size:0.78rem; color:", PALETTE_SANTE$neutre_moyen, ";"),
       "Source : registre des consultations, centres de santé du Cameroun (2025). ",
       "Données nettoyées et transformées via le pipeline R du projet.")
 )
@@ -182,9 +189,14 @@ pied_de_page <- div(class = "pied-de-page",
 ui <- page_navbar(
   title = tagList(bs_icon("heart-pulse-fill"), "Santé Cameroun · Suivi des consultations"),
   theme = theme_dashboard,
-  fillable = TRUE,
+  navbar_options = navbar_options(bg = PALETTE_SANTE$primaire_fonce, theme = "dark"),
+  # fillable = FALSE : les cartes gardent leur hauteur explicite (respectee de
+  # facon fiable) plutot que d'etre etirees/compressees pour remplir l'ecran --
+  # essentiel des qu'un graphique affiche de nombreuses categories (regions...).
+  fillable = FALSE,
   sidebar = barre_filtres,
   header = tags$head(tags$link(rel = "stylesheet", href = "styles.css")),
+  footer = pied_de_page,
 
   # ---------------------------------------------------------------- Vue d'ensemble
   nav_panel(
@@ -194,13 +206,13 @@ ui <- page_navbar(
       uiOutput("kpi_row"),
       layout_columns(
         col_widths = c(7, 5),
-        card(card_header("Évolution mensuelle des consultations"), plotlyOutput("graphe_tendance", height = 320)),
-        card(card_header("Répartition par type de consultation"), plotlyOutput("graphe_types", height = 320))
+        card(height = "380px", card_header("Évolution mensuelle des consultations"), plotlyOutput("graphe_tendance", height = "100%")),
+        card(height = "380px", card_header("Répartition par type de consultation"), plotlyOutput("graphe_types", height = "100%"))
       ),
       layout_columns(
         col_widths = c(6, 6),
-        card(card_header("Volume de consultations par région"), plotlyOutput("graphe_volume_region", height = 340)),
-        card(card_header("Diagnostics les plus fréquents"), plotlyOutput("graphe_diagnostics", height = 340))
+        card(height = "420px", card_header("Volume de consultations par région"), plotlyOutput("graphe_volume_region", height = "100%")),
+        card(height = "420px", card_header("Diagnostics les plus fréquents"), plotlyOutput("graphe_diagnostics", height = "100%"))
       )
     )
   ),
@@ -209,9 +221,10 @@ ui <- page_navbar(
   nav_panel(
     title = "Analyse géographique", icon = bs_icon("geo-alt"),
     layout_columns(
-      col_widths = c(6, 6, 12),
-      card(card_header("Taux de rupture de stock par région"), plotlyOutput("graphe_rupture_region", height = 380)),
-      card(card_header("Couverture d'assurance par région"), plotlyOutput("graphe_assurance_region", height = 380)),
+      col_widths = c(6, 6, 12, 12),
+      card(height = "480px", card_header("Taux de rupture de stock par région"), plotlyOutput("graphe_rupture_region", height = "100%")),
+      card(height = "480px", card_header("Écart de rupture de stock vs moyenne nationale"), plotlyOutput("graphe_ecart_rupture", height = "100%")),
+      card(height = "440px", card_header("Couverture d'assurance par région"), plotlyOutput("graphe_assurance_region", height = "100%")),
       card(
         card_header("Détail par district"),
         DTOutput("table_districts")
@@ -224,10 +237,10 @@ ui <- page_navbar(
     title = "Analyse clinique", icon = bs_icon("clipboard2-pulse"),
     layout_columns(
       col_widths = c(6, 6, 12),
-      card(card_header("Coût moyen de traitement par diagnostic"), plotlyOutput("graphe_cout_diagnostic", height = 360)),
-      card(card_header("Répartition par genre et diagnostic"), plotlyOutput("graphe_genre_diagnostic", height = 360)),
-      card(card_header("Profil d'âge par diagnostic (% au sein de chaque pathologie)"),
-           plotlyOutput("graphe_heatmap_age", height = 420))
+      card(height = "420px", card_header("Coût moyen de traitement par diagnostic"), plotlyOutput("graphe_cout_diagnostic", height = "100%")),
+      card(height = "420px", card_header("Répartition par genre et diagnostic"), plotlyOutput("graphe_genre_diagnostic", height = "100%")),
+      card(height = "480px", card_header("Profil d'âge par diagnostic (% au sein de chaque pathologie)"),
+           plotlyOutput("graphe_heatmap_age", height = "100%"))
     )
   ),
 
@@ -241,8 +254,8 @@ ui <- page_navbar(
       uiOutput("kpi_cout_non_assures"),
       layout_columns(
         col_widths = c(6, 6),
-        card(card_header("Distribution du coût par statut d'assurance"), plotlyOutput("graphe_cout_assurance", height = 380)),
-        card(card_header("Coût moyen par type de consultation"), plotlyOutput("graphe_cout_type", height = 380))
+        card(height = "420px", card_header("Distribution du coût par statut d'assurance"), plotlyOutput("graphe_cout_assurance", height = "100%")),
+        card(height = "420px", card_header("Coût moyen par type de consultation"), plotlyOutput("graphe_cout_type", height = "100%"))
       )
     )
   ),
@@ -257,8 +270,9 @@ ui <- page_navbar(
         tableOutput("table_qualite")
       ),
       card(
+        height = "340px",
         card_header("Complétude des champs (dataset final)"),
-        plotlyOutput("graphe_completude", height = 300)
+        plotlyOutput("graphe_completude", height = "100%")
       ),
       card(
         card_header("Méthodologie de nettoyage appliquée"),
@@ -286,10 +300,7 @@ ui <- page_navbar(
       ),
       DTOutput("table_donnees")
     )
-  ),
-
-  nav_spacer(),
-  nav_item(pied_de_page)
+  )
 )
 
 # ==============================================================================
@@ -332,8 +343,8 @@ server <- function(input, output, session) {
       carte_kpi("Couverture d'assurance", paste0(taux_assur, " %"), "shield-plus", PALETTE_SANTE$secondaire,
                 "des consultations filtrées"),
       carte_kpi("Rupture de stock", paste0(taux_rupture, " %"), "exclamation-triangle",
-                if (taux_rupture >= 20) PALETTE_SANTE$critique else if (taux_rupture >= 15) PALETTE_SANTE$avertissement else PALETTE_SANTE$bon,
-                "des consultations concernées"),
+                if (taux_rupture >= 20) PALETTE_SANTE$critique else if (taux_rupture >= 15) PALETTE_SANTE$avertissement_texte else PALETTE_SANTE$bon,
+                "des consultations concernées", badge = badge_statut(taux_rupture)),
       carte_kpi("Complétude des données", paste0(completude, " %"), "check2-circle", PALETTE_SANTE$primaire_fonce,
                 "lignes sans valeur manquante clé")
     )
@@ -345,9 +356,10 @@ server <- function(input, output, session) {
     validate(need(nrow(d) > 0, "Aucune donnée pour cette sélection."))
     p <- ggplot(d, aes(x = mois_label, y = n, group = 1,
                         text = paste0(mois_label, " : ", comma(n), " consultations"))) +
+      geom_area(fill = PALETTE_SANTE$primaire, alpha = 0.12) +
       geom_line(colour = PALETTE_SANTE$primaire, linewidth = 1) +
       geom_point(colour = PALETTE_SANTE$primaire, size = 2) +
-      scale_y_continuous(labels = comma) +
+      scale_y_continuous(labels = comma, expand = expansion(mult = c(0, 0.12))) +
       labs(x = NULL, y = "Consultations") +
       theme_sante()
     ggplotly(p, tooltip = "text") |> appliquer_theme_plotly()
@@ -370,7 +382,9 @@ server <- function(input, output, session) {
     d <- donnees_filtrees() |> count(region, name = "n") |> mutate(region = fct_reorder(region, n))
     validate(need(nrow(d) > 0, "Aucune donnée pour cette sélection."))
     p <- ggplot(d, aes(x = n, y = region, text = paste0(region, " : ", comma(n)))) +
-      geom_col(fill = PALETTE_SANTE$primaire, width = 0.65) +
+      geom_segment(aes(x = 0, xend = n, y = region, yend = region),
+                   colour = PALETTE_SANTE$primaire, linewidth = 1) +
+      geom_point(colour = PALETTE_SANTE$primaire, size = 3.2) +
       scale_x_continuous(labels = comma, expand = expansion(mult = c(0, 0.12))) +
       labs(x = "Consultations", y = NULL) +
       theme_sante()
@@ -381,8 +395,11 @@ server <- function(input, output, session) {
     d <- donnees_filtrees() |> filter(diagnosis != "Non renseigné") |>
       count(diagnosis, name = "n") |> mutate(diagnosis = fct_reorder(diagnosis, n))
     validate(need(nrow(d) > 0, "Aucune donnée pour cette sélection."))
-    p <- ggplot(d, aes(x = n, y = diagnosis, text = paste0(diagnosis, " : ", comma(n)))) +
-      geom_col(fill = PALETTE_SANTE$primaire_fonce, width = 0.65) +
+    d <- d |> mutate(accent = if_else(n == max(n), "Le plus fréquent", "Autres diagnostics"))
+    p <- ggplot(d, aes(x = n, y = diagnosis, fill = accent, text = paste0(diagnosis, " : ", comma(n)))) +
+      geom_col(width = 0.65, show.legend = FALSE) +
+      scale_fill_manual(values = c("Le plus fréquent" = PALETTE_SANTE$primaire_fonce,
+                                    "Autres diagnostics" = PALETTE_SANTE$emphase_muet)) +
       scale_x_continuous(labels = comma, expand = expansion(mult = c(0, 0.12))) +
       labs(x = "Cas", y = NULL) +
       theme_sante()
@@ -411,14 +428,41 @@ server <- function(input, output, session) {
     ggplotly(p, tooltip = "text") |> appliquer_theme_plotly()
   })
 
-  output$graphe_assurance_region <- renderPlotly({
-    d <- donnees_filtrees() |> group_by(region) |>
-      summarise(taux = 100 * mean(est_assure), .groups = "drop") |> mutate(region = fct_reorder(region, taux))
+  output$graphe_ecart_rupture <- renderPlotly({
+    d <- donnees_filtrees()
     validate(need(nrow(d) > 0, "Aucune donnée pour cette sélection."))
-    p <- ggplot(d, aes(x = taux, y = region, text = paste0(region, " : ", round(taux, 1), "%"))) +
-      geom_col(fill = PALETTE_SANTE$secondaire, width = 0.65) +
+    moyenne_nat <- 100 * mean(d$en_rupture_stock)
+    d2 <- d |> group_by(region) |>
+      summarise(taux = 100 * mean(en_rupture_stock), .groups = "drop") |>
+      mutate(ecart = taux - moyenne_nat,
+             sens = if_else(ecart >= 0, "Au-dessus de la moyenne", "En-dessous de la moyenne"),
+             region = fct_reorder(region, ecart))
+    p <- ggplot(d2, aes(x = ecart, y = region, fill = sens,
+                        text = paste0(region, " : ", ifelse(ecart >= 0, "+", ""), round(ecart, 1),
+                                      " pt vs moyenne (", round(taux, 1), "%)"))) +
+      geom_col(width = 0.65) +
+      geom_vline(xintercept = 0, colour = PALETTE_SANTE$neutre_clair, linewidth = 0.4) +
+      scale_fill_manual(values = c("Au-dessus de la moyenne" = PALETTE_SANTE$critique,
+                                    "En-dessous de la moyenne" = PALETTE_SANTE$primaire), name = NULL) +
+      labs(x = "Écart vs moyenne nationale (points de %)", y = NULL) +
+      theme_sante()
+    ggplotly(p, tooltip = "text") |> appliquer_theme_plotly()
+  })
+
+  output$graphe_assurance_region <- renderPlotly({
+    d <- donnees_filtrees()
+    validate(need(nrow(d) > 0, "Aucune donnée pour cette sélection."))
+    moyenne <- 100 * mean(d$est_assure)
+    d2 <- d |> group_by(region) |>
+      summarise(taux = 100 * mean(est_assure), .groups = "drop") |> mutate(region = fct_reorder(region, taux))
+    p <- ggplot(d2, aes(x = taux, y = region, text = paste0(region, " : ", round(taux, 1), "%"))) +
+      geom_segment(aes(x = 0, xend = taux, y = region, yend = region),
+                   colour = PALETTE_SANTE$secondaire, linewidth = 1) +
+      geom_point(colour = PALETTE_SANTE$secondaire, size = 3.2) +
+      geom_vline(xintercept = moyenne, linetype = "dashed", colour = PALETTE_SANTE$neutre_clair, linewidth = 0.4) +
       scale_x_continuous(labels = label_percent(scale = 1), expand = expansion(mult = c(0, 0.12))) +
-      labs(x = "Taux de couverture", y = NULL) +
+      labs(x = "Taux de couverture", y = NULL,
+           subtitle = paste0("Moyenne nationale : ", round(moyenne, 1), "% (ligne pointillée)")) +
       theme_sante()
     ggplotly(p, tooltip = "text") |> appliquer_theme_plotly()
   })
@@ -446,7 +490,9 @@ server <- function(input, output, session) {
       mutate(diagnosis = fct_reorder(diagnosis, cout_moyen))
     validate(need(nrow(d) > 0, "Aucune donnée pour cette sélection."))
     p <- ggplot(d, aes(x = cout_moyen, y = diagnosis, text = paste0(diagnosis, " : ", round(cout_moyen, 2), " $"))) +
-      geom_col(fill = PALETTE_SANTE$primaire_fonce, width = 0.65) +
+      geom_segment(aes(x = 0, xend = cout_moyen, y = diagnosis, yend = diagnosis),
+                   colour = PALETTE_SANTE$primaire_fonce, linewidth = 1) +
+      geom_point(colour = PALETTE_SANTE$primaire_fonce, size = 3.2) +
       scale_x_continuous(expand = expansion(mult = c(0, 0.12))) +
       labs(x = "Coût moyen (USD)", y = NULL) +
       theme_sante()
@@ -457,11 +503,18 @@ server <- function(input, output, session) {
     d <- donnees_filtrees() |> filter(diagnosis != "Non renseigné", gender != "Non renseigné") |>
       count(diagnosis, gender)
     validate(need(nrow(d) > 0, "Aucune donnée pour cette sélection."))
-    p <- ggplot(d, aes(x = n, y = diagnosis, fill = gender, text = paste0(diagnosis, " · ", gender, " : ", comma(n)))) +
-      geom_col(position = "stack", width = 0.65) +
+    ordre <- d |> group_by(diagnosis) |> summarise(total = sum(n), .groups = "drop") |>
+      arrange(total) |> pull(diagnosis)
+    d <- d |> mutate(diagnosis = factor(diagnosis, levels = ordre),
+                      n_signe = if_else(gender == "Homme", -n, n))
+    borne <- max(abs(d$n_signe))
+    p <- ggplot(d, aes(x = n_signe, y = diagnosis, fill = gender,
+                        text = paste0(diagnosis, " · ", gender, " : ", comma(n)))) +
+      geom_col(width = 0.65) +
+      geom_vline(xintercept = 0, colour = PALETTE_SANTE$neutre_clair, linewidth = 0.4) +
       scale_fill_manual(values = c("Homme" = PALETTE_SANTE$primaire, "Femme" = PALETTE_SANTE$accent_magenta), name = NULL) +
-      scale_x_continuous(labels = comma, expand = expansion(mult = c(0, 0.12))) +
-      labs(x = "Consultations", y = NULL) +
+      scale_x_continuous(labels = function(x) comma(abs(x)), limits = c(-borne, borne) * 1.08) +
+      labs(x = "Consultations (Hommes ← · → Femmes)", y = NULL) +
       theme_sante()
     ggplotly(p, tooltip = "text") |> appliquer_theme_plotly()
   })
@@ -512,8 +565,12 @@ server <- function(input, output, session) {
       group_by(consultation_type) |> summarise(cout_moyen = mean(treatment_cost), .groups = "drop") |>
       mutate(consultation_type = fct_reorder(consultation_type, cout_moyen))
     validate(need(nrow(d) > 0, "Aucune donnée pour cette sélection."))
-    p <- ggplot(d, aes(x = cout_moyen, y = consultation_type, text = paste0(consultation_type, " : ", round(cout_moyen, 2), " $"))) +
-      geom_col(fill = PALETTE_SANTE$primaire, width = 0.65) +
+    d <- d |> mutate(accent = if_else(cout_moyen == max(cout_moyen), "Le plus coûteux", "Autres types"))
+    p <- ggplot(d, aes(x = cout_moyen, y = consultation_type, fill = accent,
+                        text = paste0(consultation_type, " : ", round(cout_moyen, 2), " $"))) +
+      geom_col(width = 0.65, show.legend = FALSE) +
+      scale_fill_manual(values = c("Le plus coûteux" = PALETTE_SANTE$primaire,
+                                    "Autres types" = PALETTE_SANTE$emphase_muet)) +
       scale_x_continuous(expand = expansion(mult = c(0, 0.12))) +
       labs(x = "Coût moyen (USD)", y = NULL) +
       theme_sante()

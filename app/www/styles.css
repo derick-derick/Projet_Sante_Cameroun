@@ -95,10 +95,13 @@ body {
 
 /* --- Pied de page --------------------------------------------------------*/
 .pied-de-page {
-  color: var(--sante-encre-muette);
+  color: var(--sante-encre-douce);
   font-size: 0.8rem;
   text-align: center;
-  padding: 18px 0 10px 0;
+  padding: 14px 0;
+  width: 100%;
+  border-top: 1px solid var(--sante-bordure);
+  background-color: var(--sante-fond);
 }
 
 /* --- Table DT -------------------------------------------------------------*/
